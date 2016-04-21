@@ -19,3 +19,7 @@ chflags hidden ~/Library
 
 ## RUN ALL MACOS UPDATES
 softwareupdate --install -all
+
+## RESTART MACHINE TO APPLY SETTINGS
+osascript -e 'display notification "Please save your work. Your computer will restart in 10 minutes" with title "System Restart"'
+shutdown -r +10
