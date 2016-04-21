@@ -7,8 +7,12 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+## Set Documents as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://~/Documents/"
+
 ## HIDE USER LIBRARY (JUST IN CASE WE CHANGED IT BEFORE)
 chflags hidden ~/Library
 
 ## RUN ALL MACOS UPDATES
-sudo softwareupdate --install -all
+softwareupdate --install -all
