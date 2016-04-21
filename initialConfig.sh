@@ -11,6 +11,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://~/Documents/"
 
+## TURN OFF FAST USER SWITCHING
+defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool false
+
 ## HIDE USER LIBRARY (JUST IN CASE WE CHANGED IT BEFORE)
 chflags hidden ~/Library
 
