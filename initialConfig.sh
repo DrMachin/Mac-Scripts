@@ -11,6 +11,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 ## HIDE USER LIBRARY (JUST IN CASE WE CHANGED IT BEFORE)
 chflags hidden ~/Library
 
+## STOP TIME MACHINE PROMPT ON NEW EXTERNAL DRIVES
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
 ##--------------USER SETTINGS-----------------
 
 ## TURN OFF FAST USER SWITCHING
@@ -38,3 +41,7 @@ softwareupdate --install -all
 ## RESTART MACHINE TO APPLY SETTINGS
 osascript -e 'display notification "Please save your work. Your computer will restart in 10 minutes" with title "System Restart"'
 shutdown -r +10
+
+##-----------------TODO---------------
+#
+#   - ENABLE LOCATION SERVICES
