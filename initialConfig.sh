@@ -33,7 +33,12 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ## DISABLE SAFARI AUTO OPEN FOR "SAFE" FILES
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-##-----------------ACTIONS--------------------
+##--------------SOFTWARE UPDATES--------------
+
+## RUN ALL MACOS UPDATES
+softwareupdate --install -all
+
+##--------------REQUIRES ROOT-----------------
 
 ##ENABLE LOCATION SERVICES
 sudo launchctl unload /System/Library/LaunchDaemons/com.apple.locationd.plist
@@ -42,13 +47,10 @@ sudo defaults write /var/db/locationd/Library/Preferences/ByHost/com.apple.locat
 sudo chown -R _locationd:_locationd /var/db/locationd
 sudo launchctl load /System/Library/LaunchDaemons/com.apple.locationd.plist
 
-## RUN ALL MACOS UPDATES
-softwareupdate --install -all
-
 ## RESTART MACHINE TO APPLY SETTINGS
 osascript -e 'display notification "Please save your work. Your computer will restart in 10 minutes" with title "System Restart"'
-shutdown -r +10
+sudo shutdown -r +10
 
 ##-----------------TODO---------------
 #
-#   - ENABLE LOCATION SERVICES
+#  
