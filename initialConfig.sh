@@ -35,6 +35,13 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 ##-----------------ACTIONS--------------------
 
+##ENABLE LOCATION SERVICES
+sudo launchctl unload /System/Library/LaunchDaemons/com.apple.locationd.plist
+uuid=`/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID" | cut -c22-57`
+sudo defaults write /var/db/locationd/Library/Preferences/ByHost/com.apple.locationd.$uuid LocationServicesEnabled -int 1
+sudo chown -R _locationd:_locationd /var/db/locationd
+sudo launchctl load /System/Library/LaunchDaemons/com.apple.locationd.plist
+
 ## RUN ALL MACOS UPDATES
 softwareupdate --install -all
 
